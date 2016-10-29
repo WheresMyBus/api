@@ -21,4 +21,4 @@ Ruby scripts are converted into binary files at runtime, so no build step is nec
 
 Testing
 -------
-To run the test suite, execute the command `rails test`
+To run the test suite, execute the command `rake`
