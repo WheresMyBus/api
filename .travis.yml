@@ -5,3 +5,6 @@ before_install:
   - rm -f Gemfile.lock
   # - bundle install
   # - bundle update
+script:
+  - bundle install
+  - bundle exec rake
