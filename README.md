@@ -11,6 +11,10 @@ Installing Dependencies
 -----------------------
 Install the necessary software by executing `install_ruby.sh`
 
+Before Running or Testing
+-------------------------
+Tell rvm to use version 2.2.4 of Ruby by running `rvm use 2.2.4`
+
 Building and Running
 --------------------
 Ruby scripts are converted into binary files at runtime, so no build step is necessary, run the Rails server by executing the command `rails server` from within the repository's top level directory.
