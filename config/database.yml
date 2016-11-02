@@ -6,17 +6,7 @@ default: &default
 development:
   <<: *default
   database: WheresMyBus_development
-  username: WheresMyBus
-  password: WheresMyBus
 
 test:
   <<: *default
   database: WheresMyBus_test
-  username: WheresMyBus
-  password: WheresMyBus
-
-production:
-  <<: *default
-  database: WheresMyBus_production
-  username: WheresMyBus
-  password: <%= ENV['WHERESMYBUS_DATABASE_PASSWORD'] %>

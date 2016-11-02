@@ -1,17 +1,20 @@
 language: ruby
+rvm:
+  - 2.2.2
+
+services:
+  - postgresql
+
+before_install:
+  - rm -f Gemfile.lock
+
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+
 notifications:
   email:
     recipients:
       - wheresmybus@u.washington.edu
-    on_success: change # options: [always|never|change]
-    on_failure: change # default: always
-
-rvm:
-  - 2.2.2
-before_install:
-  - rm -f Gemfile.lock
-  # - bundle install
-  # - bundle update
-script:
-  - bundle install
-  - bundle exec rake
+    on_success: change
+    on_failure: change
