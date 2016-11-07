@@ -138,7 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
-  factory_girl_rails
+  factory_girl_rails (~> 4.0)
   onebusaway!
   pg
   puma (~> 3.0)
