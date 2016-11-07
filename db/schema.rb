@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101162623) do
+ActiveRecord::Schema.define(version: 20161106225922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "neighborhood_alerts", force: :cascade do |t|
+    t.string   "user_id"
+    t.integer  "alert_type"
+    t.text     "description"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["neighborhood_id"], name: "index_neighborhood_alerts_on_neighborhood_id", using: :btree
+  end
 
   create_table "neighborhoods", force: :cascade do |t|
     t.string   "name"
@@ -21,4 +31,5 @@ ActiveRecord::Schema.define(version: 20161101162623) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "neighborhood_alerts", "neighborhoods"
 end

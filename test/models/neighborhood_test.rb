@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class NeighborhoodTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should not save neighborhood without name" do
+    neighborhood = Neighborhood.new
+    assert_not neighborhood.save, "Saved the neighborhood without a name"
+  end
 end

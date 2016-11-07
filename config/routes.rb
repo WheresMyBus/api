@@ -3,7 +3,5 @@ Rails.application.routes.draw do
     get :filter, on: :collection
   end
 
-  resources :routes, only: [:index, :show] do
-    get :by_location, on: :collection
-  end
+  resources :routes, only: [:index]
 end
