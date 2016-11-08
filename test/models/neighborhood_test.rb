@@ -7,7 +7,7 @@ class NeighborhoodTest < ActiveSupport::TestCase
   end
 
   test "should not be valid with duplicate name" do
-    create :neighborhood, name
+    create :neighborhood
     neighborhood = build :neighborhood
     assert_not neighborhood.valid?
   end
@@ -37,5 +37,6 @@ class NeighborhoodTest < ActiveSupport::TestCase
   test "filter should not return non-match" do
     neighborhood = create :neighborhood
     neighborhoods = Neighborhood.filter 'Foo'
+    assert_not_includes neighborhoods, neighborhood
   end
 end
