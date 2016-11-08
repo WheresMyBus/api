@@ -5,5 +5,5 @@ class Neighborhood < ApplicationRecord
   validates :name, presence: true,
                    uniqueness: true
 
-  scope :filter, -> (query) { where 'LOWER(name) LIKE ?', "%#{query.downcase}%" }
+  scope :filter, -> (query) { where 'LOWER(name) LIKE ?', "%#{query.try :downcase}%" }
 end
