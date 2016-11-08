@@ -39,4 +39,14 @@ class NeighborhoodTest < ActiveSupport::TestCase
     neighborhoods = Neighborhood.filter 'Foo'
     assert_not_includes neighborhoods, neighborhood
   end
+
+  test "filter should return all neighborhoods for blank query" do
+    test1 = create :neighborhood, name: 'Test 1'
+    test2 = create :neighborhood, name: 'Test 2'
+
+    neighborhoods = Neighborhood.filter nil
+
+    assert_includes neighborhoods, test1
+    assert_includes neighborhoods, test2
+  end
 end
