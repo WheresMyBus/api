@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106225922) do
+ActiveRecord::Schema.define(version: 20161109205851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.string   "user_id"
+    t.text     "message"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+  end
 
   create_table "neighborhood_alerts", force: :cascade do |t|
     t.string   "user_id"
@@ -31,9 +41,23 @@ ActiveRecord::Schema.define(version: 20161106225922) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "route_alerts", force: :cascade do |t|
+    t.string   "user_id"
+    t.integer  "alert_type"
+    t.text     "description"
+    t.string   "route_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "votable_type"
+    t.integer  "votable_id"
+    t.string   "user_id"
+    t.integer  "value"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id", using: :btree
   end
 
   add_foreign_key "neighborhood_alerts", "neighborhoods"

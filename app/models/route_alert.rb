@@ -1,0 +1,2 @@
+class RouteAlert < ApplicationRecord
+end
