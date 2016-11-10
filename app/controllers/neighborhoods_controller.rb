@@ -2,17 +2,18 @@ class NeighborhoodsController < ApplicationController
   before_action :set_neighborhood, only: :show
 
   def index
-    @neighborhoods = Neighborhood.all
+    @neighborhoods =
+      if params[:filter]
+        Neighborhood.filter params[:filter]
+      else
+        Neighborhood.all
+      end
+
     render json: @neighborhoods
   end
 
   def show
     render json: @neighborhood
-  end
-
-  def filter
-    @neighborhoods = Neighborhood.filter params[:query]
-    render json: @neighborhoods
   end
 
   private
