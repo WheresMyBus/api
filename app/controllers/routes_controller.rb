@@ -15,11 +15,6 @@ class RoutesController < ApplicationController
     render json: @routes
   end
 
-  def alerts
-    @alerts = @route.alerts
-    render json: @alerts
-  end
-
   private
 
   def set_route

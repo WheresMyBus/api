@@ -15,11 +15,6 @@ class NeighborhoodsController < ApplicationController
     render json: @neighborhoods
   end
 
-  def alerts
-    @alerts = @neighborhood.alerts
-    render json: @alerts
-  end
-
   private
 
   def set_neighborhood
