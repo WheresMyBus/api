@@ -9,7 +9,6 @@ rvm reload
 rvm requirements run
 sudo rvm install 2.3.1
 rvm use 2.3.1 --default
-sudo gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
 sudo gem install rails
 sudo gem install rake
 sudo yum install postgresql-devel
