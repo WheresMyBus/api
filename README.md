@@ -14,7 +14,11 @@
 
 ### [GET] /neighborhoods
 
-Returns a list of all neighborhoods
+#### Description
+
+Returns a list of all neighborhoods.
+
+#### Example Response
 
 ```
 [
@@ -34,9 +38,15 @@ Returns a list of all neighborhoods
 ]
 ```
 
-### [GET] /neighborhoods?filter=hill
+---
+
+### [GET] /neighborhoods?filter={query}
+
+#### Description
 
 Returns a list of all neighborhoods where the name contains the given filter parameter. If the filter is blank, all neighborhoods will be returned.
+
+#### Example Response
 
 ```
 [
@@ -58,7 +68,11 @@ Returns a list of all neighborhoods where the name contains the given filter par
 
 ### [GET] /neighborhoods/{id}
 
+#### Description
+
 Returns the neighborhood with the given id.
+
+#### Example Response
 
 ```
 {
@@ -69,7 +83,11 @@ Returns the neighborhood with the given id.
 
 ### [GET] /neighborhoods/{id}/alerts
 
+#### Description
+
 Returns a list of alerts for the neighborhood with the given id.
+
+#### Example Response
 
 ```
 [
@@ -95,7 +113,11 @@ Returns a list of alerts for the neighborhood with the given id.
 - `description` [optional] : Text for describing the issue more specifically
 - `user_id` [optional] : The UUID for a given user
 
+#### Description
+
 Submits an alert about the neighborhood with the given id and returns the created alert.
+
+#### Example Response
 
 ```
 {
@@ -112,7 +134,11 @@ Submits an alert about the neighborhood with the given id and returns the create
 
 ### [GET] /neighborhood_alerts/{id}
 
+#### Description
+
 Returns the neighborhood alert with the given id.
+
+#### Example Response
 
 ```
 {
@@ -133,7 +159,11 @@ Returns the neighborhood alert with the given id.
 
 - `user_id` [optional] : The UUID for a given user
 
+#### Description
+
 Submits an upvote for the neighborhood alert with the given id and returns the vote.
+
+#### Example Response
 
 ```
 {
@@ -149,7 +179,11 @@ Submits an upvote for the neighborhood alert with the given id and returns the v
 
 - `user_id` [optional] : The UUID for a given user
 
+#### Description
+
 Submits a downvote for the neighborhood alert with the given id and returns the vote.
+
+#### Example Response
 
 ```
 {
@@ -161,7 +195,11 @@ Submits a downvote for the neighborhood alert with the given id and returns the 
 
 ### [GET] /neighborhood_alerts/{id}/comments
 
+#### Description
+
 Returns a list of comments for the neighborhood alert with the given id.
+
+#### Example Response
 
 ```
 [
@@ -184,7 +222,11 @@ Returns a list of comments for the neighborhood alert with the given id.
 - `message` : The content of the comment
 - `user_id` [optional] : The UUID for a given user
 
+#### Description
+
 Submits a comment about the neighborhood alert with the given id and returns the created comment.
+
+#### Example Response
 
 ```
 {
@@ -199,7 +241,11 @@ Submits a comment about the neighborhood alert with the given id and returns the
 
 ### [GET] /neighborhood_alert_comments/{id}
 
+#### Description
+
 Returns the neighborhood alert comment with the given id.
+
+#### Example Response
 
 ```
 {
@@ -218,7 +264,11 @@ Returns the neighborhood alert comment with the given id.
 
 - `user_id` [optional] : The UUID for a given user
 
+#### Description
+
 Submits an upvote for the neighborhood alert comment with the given id and returns the vote.
+
+#### Example Response
 
 ```
 {
@@ -234,7 +284,11 @@ Submits an upvote for the neighborhood alert comment with the given id and retur
 
 - `user_id` [optional] : The UUID for a given user
 
+#### Description
+
 Submits a downvote for the neighborhood alert comment with the given id and returns the vote.
+
+#### Example Response
 
 ```
 {
