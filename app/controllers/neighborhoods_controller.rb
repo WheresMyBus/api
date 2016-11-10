@@ -3,7 +3,7 @@ class NeighborhoodsController < ApplicationController
 
   def index
     @neighborhoods = Neighborhood.all
-    render json: @neighborhoods, with_alerts: false
+    render json: @neighborhoods
   end
 
   def show

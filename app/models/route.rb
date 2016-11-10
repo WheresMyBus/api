@@ -6,7 +6,8 @@ class Route
   def initialize(route)
     @id = route.id
     @number = route.short_name.presence
-    @name = route.description.presence || route.long_name.presence
+    @name = route.description.presence ||
+            route.long_name.presence
   end
 
   def self.all
@@ -15,6 +16,26 @@ class Route
         new route
       end
     end.flatten
+  end
+
+  def self.filter(query)
+    query = query.to_s.downcase
+
+    all.select do |route|
+      %i(number name).any? do |attribute|
+        route.send(attribute)
+             .try(:downcase)
+             .try(:include?, query)
+      end
+    end
+  end
+
+  def self.find(id)
+    new OneBusAway.route(id)
+  end
+
+  def alerts
+    RouteAlert.where route_id: id
   end
 
   private
