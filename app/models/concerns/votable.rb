@@ -13,6 +13,14 @@ module Votable
     votes.down
   end
 
+  def upvote_count
+    upvotes.count
+  end
+
+  def downvote_count
+    downvotes.count
+  end
+
   def upvote!(user_id = nil)
     upvotes.create user_id: user_id
   end
