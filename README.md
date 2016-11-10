@@ -38,8 +38,6 @@ Returns a list of all neighborhoods.
 ]
 ```
 
----
-
 ### [GET] /neighborhoods?filter={query}
 
 #### Description
