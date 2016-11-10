@@ -1,5 +1,5 @@
 class NeighborhoodsController < ApplicationController
-  before_action :set_neighborhood, only: [:show, :alerts]
+  before_action :set_neighborhood, only: :show
 
   def index
     @neighborhoods = Neighborhood.all

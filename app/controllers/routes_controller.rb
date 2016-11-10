@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: [:show, :alerts]
+  before_action :set_route, only: :show
 
   def index
     @routes = Route.all
