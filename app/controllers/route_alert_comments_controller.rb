@@ -1,6 +1,6 @@
 class RouteAlertCommentsController < ApplicationController
   before_action :set_alert, only: %i(index create)
-  before_action :set_comment, only: :show
+  before_action :set_comment, only: %i(show upvote downvote)
 
   def index
     @comments = @alert.comments
@@ -14,6 +14,16 @@ class RouteAlertCommentsController < ApplicationController
   def create
     @comment = @alert.comment! params[:message], params[:user_id]
     render json: @comment
+  end
+
+  def upvote
+    @vote = @alert.upvote! params[:user_id]
+    render json: @vote
+  end
+
+  def downvote
+    @vote = @alert.downvote! params[:user_id]
+    render json: @vote
   end
 
   private
