@@ -1,8 +1,8 @@
 FactoryGirl.define do
-  factory :route_alert do
+  factory :neighborhood_alert do
     issue_type 'construction'
     description 'Alert description goes here...'
-    user_id '343f8109-0f60-4a45-8193-0b342c30e005'
-    route_id '1_100224'
+    user_id '7e4302f0-a1eb-45c5-ac2f-88bb43b5617c'
+    neighborhood
   end
 end

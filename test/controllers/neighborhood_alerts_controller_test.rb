@@ -1,38 +1,43 @@
 require 'test_helper'
 
 class NeighborhoodAlertsControllerTest < ActionDispatch::IntegrationTest
+  ALERT_PARAMS = {
+    issue_type: 'construction',
+    description: 'Alert description goes here...',
+  }
+
   setup do
-    @neighborhood_alert = neighborhood_alerts(:one)
+    @alert = create :neighborhood_alert
+    @neighborhood = @alert.neighborhood
   end
 
-  test "should get index" do
-    get neighborhood_alerts_url, as: :json
+  test 'should get all alerts for neighborhood' do
+    get neighborhood_alerts_url(@neighborhood), as: :json
     assert_response :success
   end
 
-  test "should create neighborhood_alert" do
-    assert_difference('NeighborhoodAlert.count') do
-      post neighborhood_alerts_url, params: { neighborhood_alert: {  } }, as: :json
+  test 'should create neighborhood alert' do
+    assert_difference 'NeighborhoodAlert.count' do
+      post neighborhood_alerts_url(@neighborhood), params: ALERT_PARAMS, as: :json
     end
 
     assert_response 201
   end
 
-  test "should show neighborhood_alert" do
-    get neighborhood_alert_url(@neighborhood_alert), as: :json
+  test 'should show neighborhood alert' do
+    get neighborhood_alert_url(@alert), as: :json
     assert_response :success
   end
 
-  test "should update neighborhood_alert" do
-    patch neighborhood_alert_url(@neighborhood_alert), params: { neighborhood_alert: {  } }, as: :json
-    assert_response 200
+  test 'should upvote neighborhood alert' do
+    assert_difference 'Vote.count' do
+      post upvote_neighborhood_alert_url(@alert), as: :json
+    end
   end
 
-  test "should destroy neighborhood_alert" do
-    assert_difference('NeighborhoodAlert.count', -1) do
-      delete neighborhood_alert_url(@neighborhood_alert), as: :json
+  test 'should downvote neighborhood alert' do
+    assert_difference 'Vote.count' do
+      post downvote_neighborhood_alert_url(@alert), as: :json
     end
-
-    assert_response 204
   end
 end
