@@ -107,7 +107,11 @@ Returns a list of alerts for the neighborhood with the given id.
 
 #### Parameters
 
-- `issue_type` : A number representing a specific type of alert
+- `issue_type` : A string representing the type of issue
+  - options
+    - `construction`
+    - `traffic`
+    - `other`
 - `description` [optional] : Text for describing the issue more specifically
 - `user_id` [optional] : The UUID for a given user
 
@@ -398,7 +402,11 @@ Returns a list of alerts for the route with the given id.
 
 #### Parameters
 
-- `issue_type` : A number representing a specific type of alert
+- `issue_type` : A string representing the type of issue
+  - options
+    - `construction`
+    - `traffic`
+    - `other`
 - `description` [optional] : Text for describing the issue more specifically
 - `user_id` [optional] : The UUID for a given user
 
