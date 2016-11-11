@@ -30,4 +30,11 @@ sudo gem install factory_girl_rails -v '4.7.0'
 bundle install
 
 #install heroku CLI
-sudo wget -q0- https://toolbelt.heroku.com/install.sh | sh
+sudo wget -qO- https://toolbelt.heroku.com/install.sh | sh
+
+#install and set up postgresql
+sudo yum install postgresql-contrib postgresql-server
+sudo postgresql-setup initdb
+sudo sed -i -e 's/ident/md5/g' /var/lib/pgsql/data/pg_hba.conf
+sudo yum install expect
+setup_psql_user.sh

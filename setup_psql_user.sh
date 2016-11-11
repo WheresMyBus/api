@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+set name "wheresmybus"
+set pass "wheresmybus"
+spawn "./psql_prompt.sh"
+expect "postgres=#"
+send "\\password $name\n"
+expect "Enter new password: "
+send "$pass\n"
+expect "Enter it again: "
+send "$pass\n"
+expect "postgres=# "
+send "\\q\n"
