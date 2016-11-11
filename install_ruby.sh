@@ -36,5 +36,12 @@ sudo wget -qO- https://toolbelt.heroku.com/install.sh | sh
 sudo yum install postgresql-contrib postgresql-server
 sudo postgresql-setup initdb
 sudo sed -i -e 's/ident/md5/g' /var/lib/pgsql/data/pg_hba.conf
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
 sudo yum install expect
-setup_psql_user.sh
+sudo setup_psql_user.sh
+
+#add host: localhost to database.yml for local use
+sudo sed -i -e 's/username:/host: localhost\n  username:/g' ./config/database.yml
+#create the database
+rake db:create
