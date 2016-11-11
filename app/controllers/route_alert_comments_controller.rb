@@ -17,19 +17,19 @@ class RouteAlertCommentsController < ApplicationController
   end
 
   def upvote
-    @vote = @alert.upvote! params[:user_id]
+    @vote = @comment.upvote! params[:user_id]
     render json: @vote
   end
 
   def downvote
-    @vote = @alert.downvote! params[:user_id]
+    @vote = @comment.downvote! params[:user_id]
     render json: @vote
   end
 
   private
 
   def set_alert
-    @alert = RouteAlert.find params[:id]
+    @alert = RouteAlert.find params[:route_alert_id]
   end
 
   def set_comment
