@@ -3,7 +3,8 @@ class CommentSerializer < ActiveModel::Serializer
              :user_id,
              :message,
              :upvotes,
-             :downvotes
+             :downvotes,
+             :created_at
 
   def upvotes
     object.upvote_count
