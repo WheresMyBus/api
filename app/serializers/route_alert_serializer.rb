@@ -1,7 +1,7 @@
 class RouteAlertSerializer < ActiveModel::Serializer
   attributes :id,
              :user_id,
-             :alert_type,
+             :issue_type,
              :description,
              :upvotes,
              :downvotes,

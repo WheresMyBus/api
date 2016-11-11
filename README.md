@@ -22,16 +22,16 @@ Returns a list of all neighborhoods.
 
 ```
 [
-  { 
-    "id": 1, 
-    "name": "Admiral" 
+  {
+    "id": 1,
+    "name": "Admiral"
   },
   {
-    "id": 2, 
+    "id": 2,
     "name": "Alki"
   },
   {
-    "id": 3, 
+    "id": 3,
     "name": "Ballard"
   },
   ...
@@ -92,7 +92,7 @@ Returns a list of alerts for the neighborhood with the given id.
   {
     "id": 1,
     "user_id": "50d1ce8e-a213-40a0-8228-587ea7fd604c",
-    "alert_type": 0,
+    "issue_type": 0,
     "description": "Alert description goes here...",
     "upvotes": 0,
     "downvotes": 0,
@@ -107,7 +107,7 @@ Returns a list of alerts for the neighborhood with the given id.
 
 #### Parameters
 
-- `alert_type` : A number representing a specific type of alert
+- `issue_type` : A number representing a specific type of alert
 - `description` [optional] : Text for describing the issue more specifically
 - `user_id` [optional] : The UUID for a given user
 
@@ -121,7 +121,7 @@ Submits an alert about the neighborhood with the given id and returns the create
 {
   "id": 1,
   "user_id": "50d1ce8e-a213-40a0-8228-587ea7fd604c",
-  "alert_type": 0,
+  "issue_type": 0,
   "description": "Alert description goes here...",
   "upvotes": 0,
   "downvotes": 0,
@@ -142,7 +142,7 @@ Returns the neighborhood alert with the given id.
 {
   "id": 1,
   "user_id": "50d1ce8e-a213-40a0-8228-587ea7fd604c",
-  "alert_type": 0,
+  "issue_type": 0,
   "description": "Alert description goes here...",
   "upvotes": 0,
   "downvotes": 0,
@@ -383,7 +383,7 @@ Returns a list of alerts for the route with the given id.
   {
     "id": 1,
     "user_id": "1d5a07f3-e980-49b7-bf6c-005a02fe3e13",
-    "alert_type": 0,
+    "issue_type": 0,
     "description": "Alert description goes here...",
     "upvotes": 0,
     "downvotes": 0,
@@ -398,7 +398,7 @@ Returns a list of alerts for the route with the given id.
 
 #### Parameters
 
-- `alert_type` : A number representing a specific type of alert
+- `issue_type` : A number representing a specific type of alert
 - `description` [optional] : Text for describing the issue more specifically
 - `user_id` [optional] : The UUID for a given user
 
@@ -412,7 +412,7 @@ Submits an alert about the route with the given id and returns the created alert
 {
   "id": 1,
   "user_id": "1d5a07f3-e980-49b7-bf6c-005a02fe3e13",
-  "alert_type": 0,
+  "issue_type": 0,
   "description": "Alert description goes here...",
   "upvotes": 0,
   "downvotes": 0,
@@ -433,7 +433,7 @@ Returns the route alert with the given id.
 {
   "id": 1,
   "user_id": "1d5a07f3-e980-49b7-bf6c-005a02fe3e13",
-  "alert_type": 0,
+  "issue_type": 0,
   "description": "Alert description goes here...",
   "upvotes": 0,
   "downvotes": 0,
