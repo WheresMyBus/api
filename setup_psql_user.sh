@@ -1,6 +1,6 @@
 #!/usr/bin/expect
-set name "wheresmybus"
-set pass "wheresmybus"
+set name "WheresMyBus"
+set pass "WheresMyBus"
 spawn "./psql_prompt.sh"
 expect "postgres=#"
 send "\\password $name\n"

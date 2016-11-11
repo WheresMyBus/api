@@ -1,2 +1,2 @@
-sudo su postgres -c 'createuser wheresmybus'
+sudo su postgres -c 'createuser -s WheresMyBus'
 sudo su postgres -c 'psql'
