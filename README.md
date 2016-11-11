@@ -296,12 +296,6 @@ Submits a downvote for the neighborhood alert comment with the given id and retu
 }
 ```
 
----
----
----
----
----
-
 ### [GET] /routes
 
 #### Description
