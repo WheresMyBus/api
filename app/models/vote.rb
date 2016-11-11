@@ -1,5 +1,8 @@
 class Vote < ApplicationRecord
-  enum value: %i(up down)
+  enum value: [
+    :up,
+    :down
+  ]
 
   belongs_to :votable, polymorphic: true
 
