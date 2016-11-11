@@ -29,7 +29,7 @@ class RouteAlertCommentsController < ApplicationController
   private
 
   def set_alert
-    @alert = RouteAlert.find params[:route_alert_id]
+    @alert = RouteAlert.find params[:id]
   end
 
   def set_comment
