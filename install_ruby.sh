@@ -26,6 +26,15 @@ sudo gem install factory_girl -v '4.7.0'
 sudo gem install active_model_serializers -v '0.10.2'
 sudo gem install factory_girl_rails -v '4.7.0'
 
+#dependancies that break bundler in wheresmybus/onebusaway
+sudo gem install public_suffix -v '2.0.4'
+sudo gem install safe_yaml -v '1.0.4'
+sudo gem install hashdiff -v '0.3.0'
+sudo gem install vcr -v '3.0.3'
+sudo gem install addressable -v '2.5.0'
+sudo gem install crack -v '0.4.3'
+sudo gem install webmock -v '2.1.0'
+
 #install everything else with bundler
 bundle install
 
