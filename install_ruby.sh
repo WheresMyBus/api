@@ -26,8 +26,37 @@ sudo gem install factory_girl -v '4.7.0'
 sudo gem install active_model_serializers -v '0.10.2'
 sudo gem install factory_girl_rails -v '4.7.0'
 
+#dependancies that break bundler in wheresmybus/onebusaway
+sudo gem install public_suffix -v '2.0.4'
+sudo gem install safe_yaml -v '1.0.4'
+sudo gem install hashdiff -v '0.3.0'
+sudo gem install vcr -v '3.0.3'
+sudo gem install addressable -v '2.5.0'
+sudo gem install crack -v '0.4.3'
+sudo gem install webmock -v '2.1.0'
+
 #install everything else with bundler
 bundle install
 
 #install heroku CLI
-sudo wget -q0- https://toolbelt.heroku.com/install.sh | sh
+sudo wget -qO- https://toolbelt.heroku.com/install.sh | sh
+
+#install and set up postgresql
+sudo yum install postgresql-contrib postgresql-server
+sudo postgresql-setup initdb
+sudo sed -i -e 's/ident/md5/g' /var/lib/pgsql/data/pg_hba.conf
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+sudo yum install expect
+sudo setup_psql_user.sh
+
+#add host: localhost to database.yml for local use
+sudo sed -i -e 's/host: localhost//g' ./config/database.yml
+sudo sed -i -e 's/username:/host: localhost\n  username:/g' ./config/database.yml
+#create the database
+rake db:create
+rails db:migrate RAILS_ENV=test #for rake to work (?)
+rails db:migrate RAILS_ENV=development #for heroku local to work (?)
+
+#populate the database
+rails db:seed
