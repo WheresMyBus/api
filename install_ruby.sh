@@ -42,6 +42,12 @@ sudo yum install expect
 sudo setup_psql_user.sh
 
 #add host: localhost to database.yml for local use
+sudo sed -i -e 's/host: localhost//g' ./config/database.yml
 sudo sed -i -e 's/username:/host: localhost\n  username:/g' ./config/database.yml
 #create the database
 rake db:create
+rails db:migrate RAILS_ENV=test #for rake to work (?)
+rails db:migrate RAILS_ENV=development #for heroku local to work (?)
+
+#populate the database
+rails db:seed
