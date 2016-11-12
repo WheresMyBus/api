@@ -14,6 +14,8 @@ class Route
     SUPPORTED_AGENCIES.map do |id|
       OneBusAway.routes_for_agency(id).map do |route|
         new route
+      end.reject do |route|
+        route.number.nil?
       end
     end.flatten
   end
