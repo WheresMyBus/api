@@ -18,8 +18,6 @@ Rails.application.routes.draw do
                                             as: :comments
   end
 
-  resources :neighborhood_alert_comments, only: :show, concerns: :votable
-
   resources :routes, only: %i(index show) do
     resources :route_alerts, only: %i(index create),
                              path: :alerts,
@@ -32,5 +30,5 @@ Rails.application.routes.draw do
                                      as: :comments
   end
 
-  resources :route_alert_comments, only: :show, concerns: :votable
+  resources :comments, only: :show, concerns: :votable
 end

@@ -1,11 +1,6 @@
 class NeighborhoodAlert < ApplicationRecord
   include Alertable
 
-  # enum issue_type: [
-  #   :construction,
-  #   :traffic,
-  #   :other
-  # ]
-
+  has_many :affected_routes
   belongs_to :neighborhood
 end
