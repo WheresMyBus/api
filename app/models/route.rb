@@ -40,6 +40,12 @@ class Route
     RouteAlert.where route_id: id
   end
 
+  def bus_locations
+    OneBusAway.trips_for_route(id, include_status: true).map do |trip|
+      trip.status.position
+    end
+  end
+
   private
 
   # 1   - Metro Transit

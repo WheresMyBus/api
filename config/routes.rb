@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :routes, only: %i(index show) do
+    get :bus_locations, on: :member
+
     resources :route_alerts, only: %i(index create),
                              path: :alerts,
                              as: :alerts

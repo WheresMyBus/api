@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/WheresMyBus/onebusaway.git
-  revision: 8a157c0a982d3d9348828581e19cf6d9a835dc18
+  revision: 390028d5b713254e2ee0a5631c802e8ac3169601
   specs:
-    onebusaway (1.0.0)
+    onebusaway (1.0.1)
       httparty (~> 0.14.0)
 
 GEM
