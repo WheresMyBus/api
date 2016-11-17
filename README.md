@@ -108,12 +108,8 @@ Returns a list of alerts for the neighborhood with the given id.
 #### Parameters
 
 - `issue_type` : A string representing the type of issue
-  - options
-    - `construction`
-    - `traffic`
-    - `other`
-- `description` [optional] : Text for describing the issue more specifically
-- `user_id` [optional] : The UUID for a given user
+- `description` : Text for describing the issue more specifically
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -159,7 +155,7 @@ Returns the neighborhood alert with the given id.
 
 #### Parameters
 
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -179,7 +175,7 @@ Submits an upvote for the neighborhood alert with the given id and returns the v
 
 #### Parameters
 
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -222,7 +218,7 @@ Returns a list of comments for the neighborhood alert with the given id.
 #### Parameters
 
 - `message` : The content of the comment
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -238,65 +234,6 @@ Submits a comment about the neighborhood alert with the given id and returns the
   "upvotes": 0,
   "downvotes": 0,
   "created_at": "2016-11-10T17:51:32.984Z"
-}
-```
-
-### [GET] /neighborhood_alert_comments/{id}
-
-#### Description
-
-Returns the neighborhood alert comment with the given id.
-
-#### Example Response
-
-```
-{
-  "id": 1,
-  "user_id": "2af040ec-35de-49f5-9634-b3cd012799e3",
-  "message": "Comment message goes here...",
-  "upvotes": 0,
-  "downvotes": 0,
-  "created_at": "2016-11-10T17:51:32.984Z"
-}
-```
-
-### [POST] /neighborhood_alert_comments/{id}/upvote
-
-#### Parameters
-
-- `user_id` [optional] : The UUID for a given user
-
-#### Description
-
-Submits an upvote for the neighborhood alert comment with the given id and returns the vote.
-
-#### Example Response
-
-```
-{
-  "id": 3,
-  "user_id": "64f03753-0927-4c32-bd3a-3dbaace36851",
-  "value": "up"
-}
-```
-
-### [POST] /neighborhood_alert_comments/{id}/downvote
-
-#### Parameters
-
-- `user_id` [optional] : The UUID for a given user
-
-#### Description
-
-Submits a downvote for the neighborhood alert comment with the given id and returns the vote.
-
-#### Example Response
-
-```
-{
-  "id": 4,
-  "user_id": "c2184ea5-a039-4bcc-9e71-3077ecbcfde3",
-  "value": "down"
 }
 ```
 
@@ -403,12 +340,8 @@ Returns a list of alerts for the route with the given id.
 #### Parameters
 
 - `issue_type` : A string representing the type of issue
-  - options
-    - `construction`
-    - `traffic`
-    - `other`
-- `description` [optional] : Text for describing the issue more specifically
-- `user_id` [optional] : The UUID for a given user
+- `description` : Text for describing the issue more specifically
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -454,7 +387,7 @@ Returns the route alert with the given id.
 
 #### Parameters
 
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -474,7 +407,7 @@ Submits an upvote for the route alert with the given id and returns the vote.
 
 #### Parameters
 
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -517,7 +450,7 @@ Returns a list of comments for the route alert with the given id.
 #### Parameters
 
 - `message` : The content of the comment
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
@@ -536,11 +469,11 @@ Submits a comment about the route alert with the given id and returns the create
 }
 ```
 
-### [GET] /route_alert_comments/{id}
+### [GET] /comments/{id}
 
 #### Description
 
-Returns the route alert comment with the given id.
+Returns the comment with the given id.
 
 #### Example Response
 
@@ -555,15 +488,15 @@ Returns the route alert comment with the given id.
 }
 ```
 
-### [POST] /route_alert_comments/{id}/upvote
+### [POST] /comments/{id}/upvote
 
 #### Parameters
 
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
-Submits an upvote for the route alert comment with the given id and returns the vote.
+Submits an upvote for the comment with the given id and returns the vote.
 
 #### Example Response
 
@@ -575,15 +508,15 @@ Submits an upvote for the route alert comment with the given id and returns the 
 }
 ```
 
-### [POST] /route_alert_comments/{id}/downvote
+### [POST] /comments/{id}/downvote
 
 #### Parameters
 
-- `user_id` [optional] : The UUID for a given user
+- `user_id` : The UUID for a given user
 
 #### Description
 
-Submits a downvote for the route alert comment with the given id and returns the vote.
+Submits a downvote for the comment with the given id and returns the vote.
 
 #### Example Response
 
