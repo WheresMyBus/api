@@ -362,6 +362,32 @@ Submits an alert about the route with the given id and returns the created alert
 }
 ```
 
+### [GET] /route/{id}/bus_locations
+
+#### Description
+
+Returns the current locations of all buses on a given route.
+
+#### Example Response
+
+```
+[
+  {
+    "lat": 47.61451379543677,
+    "lon": -122.34447849787281
+  },
+  {
+    "lat": 47.578342407575,
+    "lon": -122.29356368385727
+  },
+  {
+    "lat": 47.590622537417325,
+    "lon": -122.29239670439664
+  },
+  ...
+]
+```
+
 ### [GET] /route_alerts/{id}
 
 #### Description
