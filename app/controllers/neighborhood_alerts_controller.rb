@@ -42,6 +42,6 @@ class NeighborhoodAlertsController < ApplicationController
   end
 
   def alert_params
-    params.permit :user_id, :issue_type, :description
+    params.permit :user_id, :issues, :description
   end
 end

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NeighborhoodAlertsControllerTest < ActionDispatch::IntegrationTest
   ALERT_PARAMS = {
-    issue_type: 'construction',
+    issues: 'construction',
     description: 'Alert description goes here...',
   }
 
@@ -18,7 +18,8 @@ class NeighborhoodAlertsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create neighborhood alert' do
     assert_difference 'NeighborhoodAlert.count' do
-      post neighborhood_alerts_url(@neighborhood), params: ALERT_PARAMS, as: :json
+      params = ALERT_PARAMS.merge user_id: SecureRandom.uuid
+      post neighborhood_alerts_url(@neighborhood), params: params, as: :json
     end
 
     assert_response 201
@@ -31,13 +32,13 @@ class NeighborhoodAlertsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should upvote neighborhood alert' do
     assert_difference 'Vote.count' do
-      post upvote_neighborhood_alert_url(@alert), as: :json
+      post upvote_neighborhood_alert_url(@alert, user_id: SecureRandom.uuid), as: :json
     end
   end
 
   test 'should downvote neighborhood alert' do
     assert_difference 'Vote.count' do
-      post downvote_neighborhood_alert_url(@alert), as: :json
+      post downvote_neighborhood_alert_url(@alert, user_id: SecureRandom.uuid), as: :json
     end
   end
 end

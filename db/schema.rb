@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119023328) do
+ActiveRecord::Schema.define(version: 20161121025522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "affected_routes", force: :cascade do |t|
-    t.integer  "neighborhood_alert_id"
-    t.string   "route_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["neighborhood_alert_id"], name: "index_affected_routes_on_neighborhood_alert_id", using: :btree
-  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "commentable_type"
@@ -40,6 +32,7 @@ ActiveRecord::Schema.define(version: 20161119023328) do
     t.integer  "neighborhood_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "affected_routes"
     t.index ["neighborhood_id"], name: "index_neighborhood_alerts_on_neighborhood_id", using: :btree
   end
 
@@ -77,6 +70,5 @@ ActiveRecord::Schema.define(version: 20161119023328) do
     t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id", using: :btree
   end
 
-  add_foreign_key "affected_routes", "neighborhood_alerts"
   add_foreign_key "neighborhood_alerts", "neighborhoods"
 end

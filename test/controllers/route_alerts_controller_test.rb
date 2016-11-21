@@ -3,7 +3,7 @@ require 'test_helper'
 class RouteAlertsControllerTest < ActionDispatch::IntegrationTest
   ROUTE_ID = '1_100224'
   ALERT_PARAMS = {
-    issue_type: 'construction',
+    issues: 'construction',
     description: 'Alert description goes here...',
   }
 
@@ -18,7 +18,8 @@ class RouteAlertsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create route alert' do
     assert_difference 'RouteAlert.count' do
-      post route_alerts_url(ROUTE_ID), params: ALERT_PARAMS, as: :json
+      params = ALERT_PARAMS.merge user_id: SecureRandom.uuid
+      post route_alerts_url(ROUTE_ID), params: params, as: :json
     end
 
     assert_response 201
@@ -31,13 +32,13 @@ class RouteAlertsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should upvote route alert' do
     assert_difference 'Vote.count' do
-      post upvote_route_alert_url(@alert), as: :json
+      post upvote_route_alert_url(@alert, user_id: SecureRandom.uuid), as: :json
     end
   end
 
   test 'should downvote route alert' do
     assert_difference 'Vote.count' do
-      post downvote_route_alert_url(@alert), as: :json
+      post downvote_route_alert_url(@alert, user_id: SecureRandom.uuid), as: :json
     end
   end
 end
