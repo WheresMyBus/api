@@ -25,7 +25,12 @@ sudo gem install httparty -v '0.14.0'
 sudo gem install factory_girl -v '4.7.0'
 sudo gem install active_model_serializers -v '0.10.2'
 sudo gem install factory_girl_rails -v '4.7.0'
-
+sudo gem install docile -v '1.1.5'
+sudo gem install docile -v '1.1.5'
+sudo gem install json -v '2.0.2'
+sudo gem install simplecov-html -v '0.10.0'
+sudo gem install simplecov -v '0.12.0'
+sudo gem install temping -v '3.7.1'
 #dependancies that break bundler in wheresmybus/onebusaway
 sudo gem install public_suffix -v '2.0.4'
 sudo gem install safe_yaml -v '1.0.4'
