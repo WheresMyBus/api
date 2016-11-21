@@ -3,4 +3,10 @@ module Alertable
 
   include Votable
   include Commentable
+  include Reportable
+
+  included do
+    validates :issues, :description, :user_id, presence: true
+  end
 end
+

@@ -3,4 +3,6 @@ class NeighborhoodAlert < ApplicationRecord
 
   has_many :affected_routes
   belongs_to :neighborhood
+
+  validates :neighborhood, presence: true
 end

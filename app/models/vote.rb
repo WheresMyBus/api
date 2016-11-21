@@ -1,10 +1,8 @@
 class Vote < ApplicationRecord
-  enum value: [
-    :up,
-    :down
-  ]
+  enum value: %i(up down)
 
   belongs_to :votable, polymorphic: true
 
-  validates :votable, :value, presence: true
+  validates :user_id, :value, :votable, presence: true
+  validates :user_id, uniqueness: { scope: :votable }
 end

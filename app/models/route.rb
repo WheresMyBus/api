@@ -42,7 +42,11 @@ class Route
 
   def bus_locations
     OneBusAway.trips_for_route(id, include_status: true).map do |trip|
-      trip.status.position
+      {
+        lat: trip.status.position.lat,
+        lon: trip.status.position.lon,
+        direction: degrees_to_direction(trip.status.orientation)
+      }
     end
   end
 
@@ -60,4 +64,8 @@ class Route
   # 99  - GO Transit
   # KMD - Kingcounty Marine Division
   SUPPORTED_AGENCIES = %w(1 29 40).freeze
+
+  def degrees_to_direction(degrees)
+    %i(N NW W SW S SE E NE)[((degrees / 45.0) + 0.5).floor % 8]
+  end
 end

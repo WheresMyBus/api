@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113234445) do
+ActiveRecord::Schema.define(version: 20161119023328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161113234445) do
 
   create_table "neighborhood_alerts", force: :cascade do |t|
     t.string   "user_id"
-    t.string   "issue_type"
+    t.string   "issues"
     t.text     "description"
     t.integer  "neighborhood_id"
     t.datetime "created_at",      null: false
@@ -49,9 +49,18 @@ ActiveRecord::Schema.define(version: 20161113234445) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.string   "reportable_type"
+    t.integer  "reportable_id"
+    t.string   "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["reportable_type", "reportable_id"], name: "index_reports_on_reportable_type_and_reportable_id", using: :btree
+  end
+
   create_table "route_alerts", force: :cascade do |t|
     t.string   "user_id"
-    t.string   "issue_type"
+    t.string   "issues"
     t.text     "description"
     t.string   "route_id"
     t.datetime "created_at",  null: false

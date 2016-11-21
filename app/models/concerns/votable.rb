@@ -21,11 +21,11 @@ module Votable
     downvotes.count
   end
 
-  def upvote!(user_id = nil)
+  def upvote!(user_id)
     upvotes.create user_id: user_id
   end
 
-  def downvote!(user_id = nil)
+  def downvote!(user_id)
     downvotes.create user_id: user_id
   end
 end
