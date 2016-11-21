@@ -1,5 +1,5 @@
 class AlertsController < ApplicationController
-  before_action :set_alert, only: %i(show upvote downvote report)
+  before_action :set_alert, only: %i(show upvote downvote unvote report)
 
   def show
     render json: @alert
@@ -12,6 +12,11 @@ class AlertsController < ApplicationController
 
   def downvote
     @vote = @alert.downvote! params[:user_id]
+    render json: @vote
+  end
+
+  def unvote
+    @vote = @alert.unvote! params[:user_id]
     render json: @vote
   end
 
