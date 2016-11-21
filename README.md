@@ -97,7 +97,15 @@ Returns a list of alerts for the neighborhood with the given id.
     "upvotes": 0,
     "downvotes": 0,
     "neighborhood_id": 1,
-    "created_at": "2016-11-10T17:29:53.626Z"
+    "created_at": "2016-11-10T17:29:53.626Z",
+    "affected_routes": [
+      {
+        "id": "1_100224",
+        "number": "44",
+        "name": "Ballard - Montlake"
+      },
+      ...
+    ]
   },
   ...
 ]
@@ -110,6 +118,7 @@ Returns a list of alerts for the neighborhood with the given id.
 - `issues` : A string representing the type of issue
 - `description` : Text for describing the issue more specifically
 - `user_id` : The UUID for a given user
+- `affected_routes[]` : A list of affected route ids
 
 #### Description
 
@@ -126,7 +135,15 @@ Submits an alert about the neighborhood with the given id and returns the create
   "upvotes": 0,
   "downvotes": 0,
   "neighborhood_id": 1,
-  "created_at": "2016-11-10T17:29:53.626Z"
+  "created_at": "2016-11-10T17:29:53.626Z",
+  "affected_routes": [
+    {
+      "id": "1_100224",
+      "number": "44",
+      "name": "Ballard - Montlake"
+    },
+    ...
+  ]
 }
 ```
 
@@ -147,7 +164,14 @@ Returns the neighborhood alert with the given id.
   "upvotes": 0,
   "downvotes": 0,
   "neighborhood_id": 1,
-  "created_at": "2016-11-10T17:29:53.626Z"
+  "created_at": "2016-11-10T17:29:53.626Z",
+  "affected_routes": [
+    {
+      "id": "1_100224",
+      "number": "44",
+      "name": "Ballard - Montlake"
+    },
+    ...
 }
 ```
 
@@ -188,6 +212,45 @@ Submits a downvote for the neighborhood alert with the given id and returns the 
   "id": 2,
   "user_id": "0b26919d-64df-4ad2-9f8b-b7feb9f289c5",
   "value": "down"
+}
+```
+
+### [DELETE] /neighborhood_alerts/{id}/unvote
+
+#### Parameters
+
+- `user_id` : The UUID for a given user
+
+#### Description
+
+Deletes the vote that the user had submitted.
+
+#### Example Response
+
+```
+{
+  "id": 2,
+  "user_id": "0b26919d-64df-4ad2-9f8b-b7feb9f289c5",
+  "value": "down"
+}
+```
+
+### [POST] /neighborhood_alerts/{id}/report
+
+#### Parameters
+
+- `user_id` : The UUID for a given user
+
+#### Description
+
+Reports the neighborhood alert with the given id.
+
+#### Example Response
+
+```
+{
+  "id": 1,
+  "user_id": "0b26919d-64df-4ad2-9f8b-b7feb9f289c5"
 }
 ```
 
@@ -362,7 +425,7 @@ Submits an alert about the route with the given id and returns the created alert
 }
 ```
 
-### [GET] /route/{id}/bus_locations
+### [GET] /routes/{id}/bus_locations
 
 #### Description
 
@@ -375,14 +438,17 @@ Returns the current locations of all buses on a given route.
   {
     "lat": 47.61451379543677,
     "lon": -122.34447849787281
+    "direction": "N"
   },
   {
     "lat": 47.578342407575,
-    "lon": -122.29356368385727
+    "lon": -122.29356368385727,
+    "direction": "E"
   },
   {
     "lat": 47.590622537417325,
-    "lon": -122.29239670439664
+    "lon": -122.29239670439664,
+    "direction": "SW"
   },
   ...
 ]
@@ -446,6 +512,45 @@ Submits a downvote for the route alert with the given id and returns the vote.
   "id": 6,
   "user_id": "8d77ec5e-924b-47ec-841d-529182d5c16c",
   "value": "down"
+}
+```
+
+### [DELETE] /route_alerts/{id}/unvote
+
+#### Parameters
+
+- `user_id` : The UUID for a given user
+
+#### Description
+
+Deletes the vote that the user had submitted.
+
+#### Example Response
+
+```
+{
+  "id": 6,
+  "user_id": "8d77ec5e-924b-47ec-841d-529182d5c16c",
+  "value": "down"
+}
+```
+
+### [POST] /route_alerts/{id}/report
+
+#### Parameters
+
+- `user_id` : The UUID for a given user
+
+#### Description
+
+Reports the route alert with the given id.
+
+#### Example Response
+
+```
+{
+  "id": 1,
+  "user_id": "0b26919d-64df-4ad2-9f8b-b7feb9f289c5"
 }
 ```
 
@@ -551,5 +656,44 @@ Submits a downvote for the comment with the given id and returns the vote.
   "id": 7,
   "user_id": "372d03de-3581-4f32-807f-8e38e759370c",
   "value": "down"
+}
+```
+
+### [DELETE] /comments/{id}/unvote
+
+#### Parameters
+
+- `user_id` : The UUID for a given user
+
+#### Description
+
+Deletes the vote that the user had submitted.
+
+#### Example Response
+
+```
+{
+  "id": 7,
+  "user_id": "372d03de-3581-4f32-807f-8e38e759370c",
+  "value": "down"
+}
+```
+
+### [POST] /comments/{id}/report
+
+#### Parameters
+
+- `user_id` : The UUID for a given user
+
+#### Description
+
+Reports the comment with the given id.
+
+#### Example Response
+
+```
+{
+  "id": 1,
+  "user_id": "0b26919d-64df-4ad2-9f8b-b7feb9f289c5"
 }
 ```

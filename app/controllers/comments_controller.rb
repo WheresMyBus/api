@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i(show upvote downvote report)
+  before_action :set_comment, only: %i(show upvote downvote unvote report)
 
   def show
     render json: @comment
@@ -12,6 +12,11 @@ class CommentsController < ApplicationController
 
   def downvote
     @vote = @comment.downvote! params[:user_id]
+    render json: @vote
+  end
+
+  def unvote
+    @vote = @comment.unvote! params[:user_id]
     render json: @vote
   end
 
