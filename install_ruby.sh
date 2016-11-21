@@ -39,6 +39,12 @@ sudo gem install vcr -v '3.0.3'
 sudo gem install addressable -v '2.5.0'
 sudo gem install crack -v '0.4.3'
 sudo gem install webmock -v '2.1.0'
+sudo gem install rspec-rails -v '3.5.2'
+sudo gem install rspec-mocks -v '3.5.0'
+sudo gem install rspec-expectations -v '3.5.0'
+sudo gem install rspec-core -v '3.5.4'
+sudo gem install rspec-support -v '3.5.0'
+sudo gem install diff-lcs -v '1.2.5'
 
 #install everything else with bundler
 bundle install
