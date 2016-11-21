@@ -11,13 +11,15 @@ class Route
   end
 
   def self.all
-    SUPPORTED_AGENCIES.map do |id|
-      OneBusAway.routes_for_agency(id).map do |route|
-        new route
-      end.reject do |route|
-        route.number.nil?
-      end
-    end.flatten
+    Rails.cache.fetch 'routes', expires_in: 1.week do
+      SUPPORTED_AGENCIES.map do |id|
+        OneBusAway.routes_for_agency(id).map do |route|
+          new route
+        end.reject do |route|
+          route.number.nil?
+        end
+      end.flatten
+    end
   end
 
   def self.filter(query)
@@ -33,7 +35,9 @@ class Route
   end
 
   def self.find(id)
-    new OneBusAway.route(id)
+    Rails.cache.fetch 'routes/#{id}', expires_in: 1.week do
+      new OneBusAway.route(id)
+    end
   end
 
   def alerts
