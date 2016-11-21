@@ -1,14 +1,9 @@
-class NeighborhoodAlertsController < ApplicationController
+class NeighborhoodAlertsController < AlertsController
   before_action :set_neighborhood, only: %i(index create)
-  before_action :set_alert, only: %i(show upvote downvote)
 
   def index
     @alerts = @neighborhood.alerts
     render json: @alerts
-  end
-
-  def show
-    render json: @alert
   end
 
   def create
@@ -21,16 +16,6 @@ class NeighborhoodAlertsController < ApplicationController
     end
   end
 
-  def upvote
-    @vote = @alert.upvote! params[:user_id]
-    render json: @vote
-  end
-
-  def downvote
-    @vote = @alert.downvote! params[:user_id]
-    render json: @vote
-  end
-
   private
 
   def set_neighborhood
@@ -39,9 +24,5 @@ class NeighborhoodAlertsController < ApplicationController
 
   def set_alert
     @alert = NeighborhoodAlert.find params[:id]
-  end
-
-  def alert_params
-    params.permit :user_id, :issues, :description
   end
 end

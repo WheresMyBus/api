@@ -1,5 +1,5 @@
 class AlertsController < ApplicationController
-  before_action :set_alert, only: %i(show upvote downvote)
+  before_action :set_alert, only: %i(show upvote downvote report)
 
   def show
     render json: @alert
@@ -23,6 +23,6 @@ class AlertsController < ApplicationController
   private
 
   def alert_params
-    params.permit :user_id, :issues, :description
+    params.permit :user_id, :issues, :description, affected_routes: []
   end
 end
