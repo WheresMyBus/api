@@ -8,7 +8,7 @@ class NeighborhoodAlert < ApplicationRecord
   validates :neighborhood, presence: true
 
   def affected_routes
-    read_attribute(:affected_routes).uniq.map do |route_id|
+    read_attribute(:affected_routes).map do |route_id|
       Route.find route_id
     end
   end
