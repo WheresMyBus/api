@@ -28,4 +28,8 @@ module Votable
   def downvote!(user_id)
     downvotes.create user_id: user_id
   end
+
+  def unvote!(user_id)
+    votes.find_by(user_id: user_id).destroy
+  end
 end

@@ -2,7 +2,7 @@ module Reportable
   extend ActiveSupport::Concern
 
   included do
-    has_many :reportings, as: :reportable
+    has_many :reports, as: :reportable
   end
 
   def report!(user_id)
