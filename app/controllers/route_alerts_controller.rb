@@ -1,4 +1,4 @@
-class RouteAlertsController < ApplicationController
+class RouteAlertsController < AlertsController
   before_action :set_route, only: %i(index create)
 
   def index
