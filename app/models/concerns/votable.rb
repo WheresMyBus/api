@@ -21,6 +21,13 @@ module Votable
     downvotes.count
   end
 
+  def vote_count
+    {
+      upvotes: upvote_count,
+      downvotes: downvote_count
+    }
+  end
+
   def upvote!(user_id)
     upvotes.create user_id: user_id
   end
@@ -30,6 +37,6 @@ module Votable
   end
 
   def unvote!(user_id)
-    votes.find_by(user_id: user_id).destroy
+    votes.find_by(user_id: user_id)&.destroy
   end
 end

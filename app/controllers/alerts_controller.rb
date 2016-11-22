@@ -6,18 +6,18 @@ class AlertsController < ApplicationController
   end
 
   def upvote
-    @vote = @alert.upvote! params[:user_id]
-    render json: @vote
+    @alert.upvote! params[:user_id]
+    render json: @alert.vote_count
   end
 
   def downvote
-    @vote = @alert.downvote! params[:user_id]
-    render json: @vote
+    @alert.downvote! params[:user_id]
+    render json: @alert.vote_count
   end
 
   def unvote
-    @vote = @alert.unvote! params[:user_id]
-    render json: @vote
+    @alert.unvote! params[:user_id]
+    render json: @alert.vote_count
   end
 
   def report
