@@ -1,4 +1,6 @@
 class BusStop
+  include ActiveModel::Serialization
+
   attr_reader :id,
               :location,
               :direction,
