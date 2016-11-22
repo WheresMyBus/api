@@ -1,7 +1,16 @@
 class BusStopSerializer < ActiveModel::Serializer
   attributes :id,
-             :location,
+             :lat,
+             :lon,
              :direction,
              :name,
              :routes
+
+  def lat
+    location.lat
+  end
+
+  def lon
+    location.lon
+  end
 end
