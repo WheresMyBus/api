@@ -1,3 +1,4 @@
+# Contains functionality that allows a model to be alertable.
 module Alertable
   extend ActiveSupport::Concern
 
@@ -6,6 +7,7 @@ module Alertable
   include Reportable
 
   included do
+    # makes issues, description, and user id required fields
     validates :issues, :description, :user_id, presence: true
   end
 end
