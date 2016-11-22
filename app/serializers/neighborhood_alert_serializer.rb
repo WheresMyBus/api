@@ -1,3 +1,3 @@
 class NeighborhoodAlertSerializer < AlertSerializer
-  attributes :neighborhood_id, :affected_routes
+  attributes :neighborhood_id, :routes_affected
 end
