@@ -7,10 +7,10 @@ class BusStopSerializer < ActiveModel::Serializer
              :routes
 
   def lat
-    location.lat
+    object.location.lat
   end
 
   def lon
-    location.lon
+    object.location.lon
   end
 end
