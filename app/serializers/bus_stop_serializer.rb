@@ -3,5 +3,5 @@ class BusStopSerializer < ActiveModel::Serializer
              :location,
              :direction,
              :name,
-             :route
+             :routes
 end
