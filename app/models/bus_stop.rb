@@ -5,25 +5,31 @@ class BusStop
               :location,
               :direction,
               :name,
-              :route_ids
+              :routes
 
-  def initialize(bus_stop)
+  def initialize(bus_stop, routes)
     @id = bus_stop.id
     @location = bus_stop.location
     @direction = bus_stop.direction
     @name = bus_stop.name
-    @route_ids = bus_stop.route_ids
+    @routes = routes
   end
 
   def self.for_location(location, radius: nil)
-    OneBusAway.stops_for_location(location, radius: radius).map do |stop|
-      new stop
-    end
-  end
+    stops, routes = OneBusAway.stops_for_location(location,
+                                                  radius: radius,
+                                                  include_routes: true)
 
-  def routes
-    route_ids.map do |route_id|
-      Route.new OneBusAway.route(route_id)
+    stops.map do |stop|
+      filtered_routes = routes.select do |route|
+        stop.route_ids.include? route.id
+      end
+
+      filtered_routes.map! do |route|
+        Route.new route
+      end
+
+      new stop, filtered_routes
     end
   end
 end
