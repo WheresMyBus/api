@@ -38,4 +38,6 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: :show, concerns: %i(votable reportable)
+
+  resources :bus_stops, only: :index
 end

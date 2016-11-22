@@ -1,16 +1,16 @@
-class Stop
+class BusStop
   attr_reader :id,
               :location,
               :direction,
-              :name
+              :name,
               :route_ids
 
-  def initialize(stop)
-    @id = stop.id
-    @location = stop.location
-    @direction = stop.direction
-    @name = stop.name
-    @route_ids = stop.route_ids
+  def initialize(bus_stop)
+    @id = bus_stop.id
+    @location = bus_stop.location
+    @direction = bus_stop.direction
+    @name = bus_stop.name
+    @route_ids = bus_stop.route_ids
   end
 
   def self.for_location(location, radius: nil)
@@ -21,7 +21,7 @@ class Stop
 
   def routes
     route_ids.map do |route_id|
-
+      Route.new OneBusAway.route(route_id)
     end
   end
 end
