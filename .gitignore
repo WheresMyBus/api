@@ -20,5 +20,4 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore SimpleCov output.
-coverage
+# Don't ignore SimpleCov output, we want it to show the course staff
