@@ -6,18 +6,18 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    @vote = @comment.upvote! params[:user_id]
-    render json: @vote
+    @comment.upvote! params[:user_id]
+    render json: @comment.vote_count
   end
 
   def downvote
-    @vote = @comment.downvote! params[:user_id]
-    render json: @vote
+    @comment.downvote! params[:user_id]
+    render json: @comment.vote_count
   end
 
   def unvote
-    @vote = @comment.unvote! params[:user_id]
-    render json: @vote
+    @comment.unvote! params[:user_id]
+    render json: @comment.vote_count
   end
 
   def report
