@@ -98,7 +98,7 @@ Returns a list of alerts for the neighborhood with the given id.
     "downvotes": 0,
     "neighborhood_id": 1,
     "created_at": "2016-11-10T17:29:53.626Z",
-    "affected_routes": [
+    "routes_affected": [
       {
         "id": "1_100224",
         "number": "44",
@@ -136,7 +136,7 @@ Submits an alert about the neighborhood with the given id and returns the create
   "downvotes": 0,
   "neighborhood_id": 1,
   "created_at": "2016-11-10T17:29:53.626Z",
-  "affected_routes": [
+  "routes_affected": [
     {
       "id": "1_100224",
       "number": "44",
@@ -165,7 +165,7 @@ Returns the neighborhood alert with the given id.
   "downvotes": 0,
   "neighborhood_id": 1,
   "created_at": "2016-11-10T17:29:53.626Z",
-  "affected_routes": [
+  "routes_affected": [
     {
       "id": "1_100224",
       "number": "44",
