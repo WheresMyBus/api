@@ -189,9 +189,8 @@ Submits an upvote for the neighborhood alert with the given id and returns the v
 
 ```
 {
-  "id": 1,
-  "user_id": "2f815de9-0726-4af6-9fca-ab251a2cbf29",
-  "value": "up"
+  "upvotes": 1,
+  "downvotes": 0
 }
 ```
 
@@ -209,9 +208,8 @@ Submits a downvote for the neighborhood alert with the given id and returns the 
 
 ```
 {
-  "id": 2,
-  "user_id": "0b26919d-64df-4ad2-9f8b-b7feb9f289c5",
-  "value": "down"
+  "upvotes": 1,
+  "downvotes": 1
 }
 ```
 
@@ -229,9 +227,8 @@ Deletes the vote that the user had submitted.
 
 ```
 {
-  "id": 2,
-  "user_id": "0b26919d-64df-4ad2-9f8b-b7feb9f289c5",
-  "value": "down"
+  "upvotes": 0,
+  "downvotes": 0
 }
 ```
 
@@ -489,9 +486,8 @@ Submits an upvote for the route alert with the given id and returns the vote.
 
 ```
 {
-  "id": 5,
-  "user_id": "26317c91-7914-4947-a0f3-987cac4036dc",
-  "value": "up"
+  "upvotes": 1,
+  "downvotes": 0
 }
 ```
 
@@ -509,9 +505,8 @@ Submits a downvote for the route alert with the given id and returns the vote.
 
 ```
 {
-  "id": 6,
-  "user_id": "8d77ec5e-924b-47ec-841d-529182d5c16c",
-  "value": "down"
+  "upvotes": 1,
+  "downvotes": 1
 }
 ```
 
@@ -529,9 +524,8 @@ Deletes the vote that the user had submitted.
 
 ```
 {
-  "id": 6,
-  "user_id": "8d77ec5e-924b-47ec-841d-529182d5c16c",
-  "value": "down"
+  "upvotes": 0,
+  "downvotes": 0
 }
 ```
 
@@ -633,9 +627,8 @@ Submits an upvote for the comment with the given id and returns the vote.
 
 ```
 {
-  "id": 7,
-  "user_id": "af7cc903-f821-4098-88dc-452378bc9bd6",
-  "value": "up"
+  "upvotes": 1,
+  "downvotes": 0
 }
 ```
 
@@ -653,9 +646,8 @@ Submits a downvote for the comment with the given id and returns the vote.
 
 ```
 {
-  "id": 7,
-  "user_id": "372d03de-3581-4f32-807f-8e38e759370c",
-  "value": "down"
+  "upvotes": 1,
+  "downvotes": 1
 }
 ```
 
@@ -673,9 +665,8 @@ Deletes the vote that the user had submitted.
 
 ```
 {
-  "id": 7,
-  "user_id": "372d03de-3581-4f32-807f-8e38e759370c",
-  "value": "down"
+  "upvotes": 0,
+  "downvotes": 0
 }
 ```
 
