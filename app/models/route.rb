@@ -44,7 +44,7 @@ class Route
   # Gets the route corresponding to the given id. The result is cached for one week in order to
   # limit the number of calls to the OneBusAway API.
   def self.find(id)
-    Rails.cache.fetch 'routes/#{id}', expires_in: 1.week do
+    Rails.cache.fetch "routes/#{id}", expires_in: 1.week do
       new OneBusAway.route(id)
     end
   end
