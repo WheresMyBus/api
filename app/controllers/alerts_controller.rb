@@ -24,10 +24,4 @@ class AlertsController < ApplicationController
     @report = @alert.report! params[:user_id]
     render json: @report
   end
-
-  private
-
-  def alert_params
-    params.permit :user_id, :issues, :description, affected_routes: []
-  end
 end

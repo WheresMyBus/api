@@ -25,4 +25,8 @@ class RouteAlertsController < AlertsController
   def set_alert
     @alert = RouteAlert.find params[:id]
   end
+
+  def alert_params
+    params.permit :user_id, :issues, :description
+  end
 end

@@ -25,4 +25,8 @@ class NeighborhoodAlertsController < AlertsController
   def set_alert
     @alert = NeighborhoodAlert.find params[:id]
   end
+
+  def alert_params
+    params.permit :user_id, :issues, :description, affected_routes: []
+  end
 end
